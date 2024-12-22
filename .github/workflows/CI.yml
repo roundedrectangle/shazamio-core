@@ -15,7 +15,7 @@ jobs:
         include:
           - docker_file: docker/Dockerfile.u2004
             name: u2004-armv7l
-            arch: linux/arm32v7, linux/armv7
+            arch: linux/arm32v7
 
     steps:
       - uses: actions/checkout@v4
