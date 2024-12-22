@@ -14,8 +14,8 @@ jobs:
       matrix:
         include:
           - docker_file: docker/Dockerfile.u2004
-            name: u2004-armv7ll
-            arch: linux/arm32v7
+            name: u2004-armv7l
+            arch: linux/amd64
 
     steps:
       - uses: actions/checkout@v4
