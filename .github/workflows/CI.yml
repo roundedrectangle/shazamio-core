@@ -1,11 +1,6 @@
 name: shazamio-core CI
 
-on:
-  push:
-    branches:
-      - 'master'
-    tags:
-      - '*'
+on: workflow_dispatch
 
 permissions:
   contents: write
