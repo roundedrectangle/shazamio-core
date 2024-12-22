@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as base
+FROM ubuntu-arm32v7:20.04 as base
 
 WORKDIR /opt
 COPY docker/install-basic-deps-u2004.sh .
@@ -25,5 +25,5 @@ RUN maturin build --release --manylinux off --out dist
 RUN python3 -m pip install --upgrade pip
 RUN python3 -m pip install dist/*.whl
 
-FROM alpine:3.18 as dist
+FROM alpine-armv7:3.18 as dist
 COPY --from=builder /opt/dist /opt/dist
