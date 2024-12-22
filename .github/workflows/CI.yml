@@ -15,7 +15,7 @@ jobs:
         include:
           - docker_file: docker/Dockerfile.u2004
             name: u2004-armv7l
-            arch: linux/amd64
+            arch: linux/arm32v7
 
     steps:
       - uses: actions/checkout@v4
@@ -61,21 +61,3 @@ jobs:
         with:
           name: wheels
           path: dist
-
-  release:
-    name: Release
-    runs-on: ubuntu-latest
-    if: "startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch'"
-    needs: [ sdist, linux ]
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: wheels
-
-      - name: Attach Artifacts to the release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: |
-            dist/*.whl
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
