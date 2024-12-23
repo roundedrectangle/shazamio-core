@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as base
+FROM --platform=linux/arm32v7 ubuntu:20.04 as base
 
 WORKDIR /opt
 COPY docker/install-basic-deps-u2004.sh .
