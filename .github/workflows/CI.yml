@@ -22,7 +22,13 @@ jobs:
           - runner: ubuntu-22.04
             target: x86
           - runner: ubuntu-22.04
+            target: aarch64
+          - runner: ubuntu-22.04
             target: armv7
+          - runner: ubuntu-22.04
+            target: s390x
+          - runner: ubuntu-22.04
+            target: ppc64le
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -36,7 +42,7 @@ jobs:
           sccache: 'true'
           manylinux: auto
           before-script-linux: |
-            yum install -y clang clang-devel alsa-lib-devel
+            yum install -y clang clang-devel alsa-lib-devel || apt-get install -y clang clang-dev alsa-dev
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
