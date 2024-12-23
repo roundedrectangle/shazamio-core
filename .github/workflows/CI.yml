@@ -38,7 +38,7 @@ jobs:
           sccache: 'true'
           manylinux: auto
           before-script-linux: |
-            yum install -y clang clang-devel alsa-lib-devel || (dpkg --add-architecture armhf; dpkg --add-architecture arm64; apt-get update; apt-get install -y clang libclang-dev libasound2-dev libasound2-dev:arm64 libasound2-dev:armhf)
+            yum install -y clang clang-devel alsa-lib-devel || (apt-get install -y clang libclang-dev libasound2-dev)
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
