@@ -42,8 +42,7 @@ jobs:
           sccache: 'true'
           manylinux: auto
           before-script-linux: |
-            apt-get update
-            apt-get install -y alsa alsa-dev
+            yum install alsa-dev
       - name: Upload wheels
         uses: actions/upload-artifact@v4
         with:
